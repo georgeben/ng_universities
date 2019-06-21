@@ -1,6 +1,6 @@
 {
   "name": "ng_universities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package to retrieve the list of universities in Nigeria approved by the Nigerian University Commission (NUC)",
   "main": "index.js",
   "scripts": {
