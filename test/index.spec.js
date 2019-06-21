@@ -4,12 +4,18 @@ const expect = require('chai').expect
 const path = require('path')
 
 describe('index.js', function(){
+    let universities = []
+
+    before(function(done){
+        universities = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/universities.json'), 'utf-8'))
+        done()
+    })
+
     it('smoke tests', function(){
         expect(1).to.equal(1)
     })
 
     it('should return list of all universities', function(){
-        let universities = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/universities.json'), 'utf-8'))
         universities = JSON.stringify(universities)
         expect(getUniversities()).to.deep.equal(universities)
     })
