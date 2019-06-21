@@ -4,7 +4,7 @@
   "description": "A package to retrieve the list of universities in Nigeria approved by the Nigerian University Commission (NUC)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha \"./test/**/*.spec.js\" "
   },
   "keywords": [
     "nigerian",
@@ -12,5 +12,11 @@
     "universities"
   ],
   "author": "George Benjamin",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.1.4"
+  }
 }
