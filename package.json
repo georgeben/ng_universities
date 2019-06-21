@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha \"./test/**/*.spec.js\" "
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgeben/ng_universities"
+  },
   "keywords": [
     "nigerian",
     "universities",
