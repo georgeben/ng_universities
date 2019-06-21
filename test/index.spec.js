@@ -8,16 +8,50 @@ describe('index.js', function(){
 
     before(function(done){
         universities = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/universities.json'), 'utf-8'))
+        // universities = JSON.stringify(universities)
         done()
     })
+
+    beforeEach(function(){
+        universities = JSON.stringify(universities)
+        universities = JSON.parse(universities)
+    })
+
 
     it('smoke tests', function(){
         expect(1).to.equal(1)
     })
 
     it('should return list of all universities', function(){
-        universities = JSON.stringify(universities)
-        expect(getUniversities()).to.deep.equal(universities)
+        expect(getUniversities()).to.deep.equal(JSON.stringify(universities))
+    })
+
+    it('should return the list of private universities', function(){
+        private_universities = JSON.stringify(universities.filter(function(item){
+            return item.type == "Private"
+        }))
+        expect(getUniversities("private")).to.deep.equal(private_universities)
+    })
+
+    it('should return the list of federal universities', function(){
+        federal_universities = JSON.stringify(universities.filter(function(item){
+            return item.type == "Federal"
+        }))
+        expect(getUniversities("federal")).to.deep.equal(federal_universities)
+    })
+
+    it('should return the list of state universities', function(){
+        state_universities = JSON.stringify(universities.filter(function(item){
+            return item.type == "State"
+        }))
+        expect(getUniversities("state")).to.deep.equal(state_universities)
+    })
+
+    it('should return the list of public universities', function(){
+        public_universities = JSON.stringify(universities.filter(function(item){
+            return item.type == "State" || item.type == "Federal"
+        }))
+        expect(getUniversities("public")).to.deep.equal(public_universities)
     })
 
     it('should throw an error if a wrong parameter for category is passed', function(){
