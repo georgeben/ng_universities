@@ -1,0 +1,16 @@
+{
+  "name": "ng_universities",
+  "version": "1.0.0",
+  "description": "A package to retrieve the list of universities in Nigeria approved by the Nigerian University Commission (NUC)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nigerian",
+    "universities",
+    "universities"
+  ],
+  "author": "George Benjamin",
+  "license": "MIT"
+}
