@@ -6,32 +6,36 @@
  * @throws {IllegalArgumentException}
  */
 function getUniversities(category){
-    if(typeof(category) != "string"){
-        throw new Error("IllegalArgumentException - Category must be a string")
+    if(category){
+        if(typeof(category) != "string" ){
+            throw new Error("IllegalArgumentException - Category must be a string")
+        }
+        category = category.toLowerCase()
     }
+    
     universities = require('./db/universities.json')
-    category = category.toLowerCase()
+    
     if(category == undefined){
-        return universities
+        return JSON.stringify(universities)
     }else if (category == "federal"){
-        return universities.filter(function(item){
+        return JSON.stringify(universities.filter(function(item){
             return item.type == "Federal"
-        })
+        }))
     }else if(category == "state"){
-        return universities.filter(function(item){
+        return JSON.stringify(universities.filter(function(item){
             return item.type == "State"
-        })
+        }))
     }else if(category == "private"){
-        return universities.filter(function(item){
+        return JSON.stringify(universities.filter(function(item){
             return item.type == "Private"
-        })
+        }))
     }else if(category == "public"){
-        return universities.filter(function(item){
+        return JSON.stringify(universities.filter(function(item){
             return item.type == "State" || item.type == "Federal"
-        })
+        }))
     }else{
         return {}
     }
 }
 
-module.exports = getUniversities;
+exports.getUniversities = getUniversities;
